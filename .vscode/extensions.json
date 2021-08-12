@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "formulahendry.auto-rename-tag",
+        "coenraads.bracket-pair-colorizer-2",
+        "ecmel.vscode-html-css",
+        "christian-kohler.path-intellisense",
+        "octref.vetur"
+    ]
+}
