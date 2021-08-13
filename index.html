@@ -32,14 +32,17 @@
             插值语法：{{表达式}} 
         -->
         <p>Hello, {{name.toUpperCase()}}</p>
+        <p>{{test.a}} and {{test.b}}</p>
         <!-- 
             v-bind 可以给标签内任意属性绑定值
             v-bind 可以简写成 :
          -->
         <h1>指令语法</h1>
-        <a v-bind:href="url" v-bind:x="hello">test</a>
+        <a v-bind:href="url" v-bind:x="hello">test</a><br>
         <!-- 简写： -->
-        <a :href="url" :x="hello">test</a>
+        <a :href="url" :x="hello">test</a><br>
+        <!-- 里面也是表达式 -->
+        <a :href="url.toUpperCase()" :x="hello">test</a><br>
     </div>
     <script type="text/javascript">
         const vm = new Vue({
@@ -47,8 +50,12 @@
             // data 用于存储数据，供给el所指定的容器去使用
             data:{
                 name:'vue',
+                test:{
+                    a:'a',
+                    b:'b'
+                },
                 url: 'https://www.morfans.cn',
-                hello: 'hello'
+                hello: 'hello',
             }
         });
     </script>
