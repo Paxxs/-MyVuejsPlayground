@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineproperty</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let number_v = 12
+        let person = {
+            name: 'object',
+            sex: 'none',
+            // age: '36',
+        }
+        
+        Object.defineProperty(person, 'age',{
+            value: '36',
+            // 允许遍历，默认 false
+            enumerable: true,
+            // 允许修改，默认 false
+            writable: true,
+            // 允许删除，默认 false
+            configurable: true,
+        })
+
+        // 用 object.defineProperty 实现数据绑定 (get,set)
+        Object.defineProperty(person, 'number',{
+            // get: function() {}
+            get(){
+                console.log('number值被读取')
+                return number_v
+            },
+            set(value) {
+                console.log('number值被修改',value)
+                number_v = value
+            }
+        })
+
+
+        console.log(person)
+    </script>
+</body>
+</html>
