@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的el还有data</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>{{name}}</h1>
+    </div>
+    <script>
+        /*
+        vue 中 el 的两种方式
+            1. new Vue 时候配置 el 属性
+            2. 创建 Vue 实例后，随后 通过 vm.$mount() 指定 el 的值
+        */
+        const vm = new Vue({
+            // el: '#root',
+            data: {
+                name: 'vue'
+            }
+        });
+        setTimeout(() => {
+            vm.$mount('#root');
+        }, 1000);
+    </script>
+</body>
+</html>

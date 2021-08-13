@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的el还有data</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>{{name}}</h1>
+    </div>
+    <script>
+        /*
+        vue 中 data 的两种方式
+            1. 对象式
+            2. 函数式: 以后用到组件时候，必须使用函数式，不然会报错
+        */
+        const vm = new Vue({
+            // 对象式
+            /*
+            data: {
+                name: 'vue'
+            }
+            */
+
+            // 函数式
+            /*
+            data:function(){
+                // 这里不能写成箭头函数，不然 this 会变成 windows 而不是 vue
+                console.log(this)
+                return {
+                    name:'vue'
+                }
+            }
+            */
+            // 函数式的一般简写
+            data(){
+                console.log(this)
+                return{
+                    name: 'vue'
+                }
+            }
+        });
+        setTimeout(() => {
+            vm.$mount('#root');
+        }, 1000);
+    </script>
+</body>
+</html>
