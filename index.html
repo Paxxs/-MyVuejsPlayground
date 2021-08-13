@@ -19,11 +19,23 @@
     </div>
     <script>
         const vm = new Vue({
-            el:'#root',
+            /*
+                vue 挂载容器的两种方法
+            */
+            // 第一种方法:
+            // el:'#root',
             data: {
                 input: 'hello'
             }
         })
+            /*
+                vue 挂载容器的两种方法
+            */
+            // 第二种方法，使用 vue.$mount() 可玩性更高。
+            console.log(vm)
+            setTimeout(() => {
+                vm.$mount('#root');
+            }, 1000);
     </script>
 </body>
 </html>
