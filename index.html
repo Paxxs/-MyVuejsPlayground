@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>{{name}}-事件处理</h1>
+        <!-- 括号想加就加，如果要传参数必须要加 -->
+        <button v-on:click="showInfo">提示信息</button>
+        <!-- v-on: 的简写为 @ -->
+        <button @click="showInfo">提示信息简写</button>
+        <!--
+            带参数的事件处理()
+            <button v-on:click="showInfo2(66)">带参数提示信息</button> 
+            如果要用到 event,需要带上 $event
+        -->
+        <button v-on:click="showInfo2($event,66)">带参数提示信息</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name:'vue'
+            },
+            methods:{
+                showInfo(event){
+                    // 默认参数是
+                    console.log(event) // 事件对象
+                        console.log(event.target.innerText)
+                    console.log(this) // vm
+                    alert('嗨，我的老伙计~')
+                },
+                showInfo2(event,a){
+                    // 默认参数是
+                    console.log(event) // 事件对象
+                    alert(a)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
