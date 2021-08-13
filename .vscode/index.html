@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=q">
+    <title>Hello VUE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 
+            1. v-model 只能用在 **表单元素内** 比如 input,select
+            2. v-model:value= 可以简写为 v-model，因为 v-model 默认收集的就是value的值
+         -->
+        单向数据绑定 <input type="text" v-bind:value="input"> <p>{{input}}</p><br>
+        双向数据绑定 <input type="text" v-model:value="input"> <p>{{input}}</p><br>
+        双向数据绑定的简写 <input type="text" v-model="input"> <p>{{input}}</p><br>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#root',
+            data: {
+                input: 'hello'
+            }
+        })
+    </script>
+</body>
+</html>
